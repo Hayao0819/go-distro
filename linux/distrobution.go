@@ -1,6 +1,10 @@
 package linux
 
-import "github.com/Hayao0819/go-distro/ostype"
+import (
+	"os"
+
+	"github.com/Hayao0819/go-distro/ostype"
+)
 
 var DistroList []*Linux = []*Linux{
 	Other,
@@ -24,7 +28,23 @@ var Other  = &Linux{
 	},
 }
 
-var	Arch   = &Linux{value: "arch"}
+var	Arch   = &Linux{
+	value: "arch",
+	verfunc: func()(ostype.V){
+		return Version{
+			id: "rolling",
+			codename: "rolling",
+		}
+	},
+	require: func()(bool){
+		// /etc/arch-releaseが存在するか
+		if _, err := os.Stat("/etc/arch-release"); err != nil {
+			return true
+		}
+
+		return false
+	},
+}
 var	Debian = &Linux{value: "debian"}
 var	Ubuntu = &Linux{value: "ubuntu"}
 var	RHEL   = &Linux{value: "rhel"}
