@@ -43,7 +43,7 @@ var (
 	Ventura      = Darwin{value: "ventura", version: "13"}
 )
 
-var Versions []*Darwin = []*Darwin{
+var VersionList []*Darwin = []*Darwin{
 	&Other,
 	&Cheetah,
 	&Puma,
@@ -67,7 +67,7 @@ var Versions []*Darwin = []*Darwin{
 }
 
 func getFromVersion(v string)(ostype.F){
-	for _, i := range Versions {
+	for _, i := range VersionList {
 		if i==&Other{
 			continue
 		}
