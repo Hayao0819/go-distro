@@ -9,24 +9,6 @@ import (
 )
 
 
-
-type Linux struct {
-	value string
-}
-
-func (l Linux) String() string {
-	return l.value
-}
-
-
-var Other  = &Linux{value: "other"}
-var	Arch   = &Linux{value: "arch"}
-var	Debian = &Linux{value: "debian"}
-var	Ubuntu = &Linux{value: "ubuntu"}
-var	RHEL   = &Linux{value: "rhel"}
-var	CentOS = &Linux{value: "centos"}
-
-
 func getFromID(id string) *Linux {
 	switch id {
 	case "debian":
@@ -73,16 +55,4 @@ func getFromLsbRelease() (ostype.F, error) {
 		return nil, err
 	}
 	return getFromID(l.ID), nil
-}
-
-func Get() ostype.F {
-	if l, err := getFromLsbRelease(); err == nil && l != Other {
-		return l
-	}
-
-	if l, err := getFromOSRelease(); err == nil && l != Other {
-		return l
-	}
-
-	return Other
 }
