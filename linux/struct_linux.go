@@ -16,3 +16,6 @@ func (l Linux) GetVersion()(ostype.V){
 	return l.verfunc()
 }
 
+func (l Linux)Require()(bool){
+	return l.require()
+}
