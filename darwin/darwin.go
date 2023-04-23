@@ -68,6 +68,9 @@ var Versions []*Darwin = []*Darwin{
 
 func getFromVersion(v string)(ostype.F){
 	for _, i := range Versions {
+		if i==&Other{
+			continue
+		}
 		if strings.HasPrefix(v, i.Version()){
 			return i
 		}
