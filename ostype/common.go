@@ -2,7 +2,7 @@ package ostype
 
 type F interface {
 	String() string
-	//Version() V
+	Version() V
 }
 
 // バージョン
@@ -20,6 +20,9 @@ func (o other)ID()(string){
 }
 func (o other)CodeName()(string){
 	return "other"
+}
+func (o other)Version()(V){
+	return o
 }
 
 var Other = other{}
