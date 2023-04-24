@@ -1,8 +1,8 @@
 package linux
 
 type Version struct {
-	id       string
-	codename string
+	id       string // 空白を含まない小文字の文字列
+	codename string // 空白を含む表示用の文字列
 }
 
 func (v Version) ID() string {
