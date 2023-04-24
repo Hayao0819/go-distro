@@ -24,9 +24,8 @@ var Other  = &Linux{
 }
 
 
-
-
-
-
-var	RHEL   = &Linux{id: "rhel"}
+var	RHEL   = &Linux{
+	id: "rhel",
+	name: "Red Hat Enterprise Linux",
+}
 var	CentOS = &Linux{id: "centos"}
