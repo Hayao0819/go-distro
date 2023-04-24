@@ -33,3 +33,10 @@ var FreeBSD = &Bsd{
 	id:   "freebsd",
 	name: "FreeBSD",
 }
+
+func Get() ostype.F {
+	if FreeBSD.require != nil && !FreeBSD.require() {
+		return ostype.Other
+	}
+	return FreeBSD
+}
