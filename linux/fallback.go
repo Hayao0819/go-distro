@@ -1,8 +1,8 @@
 package linux
 
 import (
-	"strings"
 	"github.com/Hayao0819/go-distro/ostype"
+	"strings"
 )
 
 // idと定数の関連付け

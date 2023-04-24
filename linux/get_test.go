@@ -7,7 +7,7 @@ import (
 	"github.com/Hayao0819/go-distro/linux"
 )
 
-func TestGet(t *testing.T){
+func TestGet(t *testing.T) {
 	l := linux.Get()
 	fmt.Println(l.String())
 }

@@ -6,22 +6,23 @@ type F interface {
 }
 
 // バージョン
-type V interface{
+type V interface {
 	ID() string
 	CodeName() string
 }
 
 type other struct{}
-func (o other)String()(string){
+
+func (o other) String() string {
 	return "other"
 }
-func (o other)ID()(string){
+func (o other) ID() string {
 	return "other"
 }
-func (o other)CodeName()(string){
+func (o other) CodeName() string {
 	return "other"
 }
-func (o other)Version()(V){
+func (o other) Version() V {
 	return o
 }
 

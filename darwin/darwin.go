@@ -3,10 +3,10 @@ package darwin
 import (
 	"strings"
 
-	"golang.org/x/text/cases"
-	"golang.org/x/text/language"
 	"github.com/Hayao0819/go-distro/ostype"
 	"github.com/Hayao0819/sysinfo-ng"
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 type Darwin struct {
@@ -14,12 +14,11 @@ type Darwin struct {
 	version string
 }
 
-
-func (d Darwin)ID()(string){
+func (d Darwin) ID() string {
 	return d.value
 }
 
-func (d Darwin)CodeName()(string){
+func (d Darwin) CodeName() string {
 	// replace "hoge-fugo" to "Hoge Fugo"
 	//return strings.Title(strings.ReplaceAll(d.value, "-", " "))
 	return cases.Title(language.Und).String(strings.ReplaceAll(d.value, "-", " "))
@@ -79,19 +78,19 @@ var VersionList []*Darwin = []*Darwin{
 	&Ventura,
 }
 
-func getFromVersion(v string)(ostype.F){
+func getFromVersion(v string) ostype.F {
 	for _, i := range VersionList {
-		if i==&Other{
+		if i == &Other {
 			continue
 		}
-		if strings.HasPrefix(v, i.Version().ID()){
+		if strings.HasPrefix(v, i.Version().ID()) {
 			return i
 		}
 	}
 	return Other
 }
 
-func Get()(ostype.F){
+func Get() ostype.F {
 	var v sysinfo.SysInfo
 	v.GetSysInfo()
 	return getFromVersion(v.OS.Release)

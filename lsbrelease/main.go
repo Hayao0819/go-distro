@@ -5,51 +5,51 @@ import (
 	"strings"
 )
 
-type LsbRelease struct{
-	ID string
+type LsbRelease struct {
+	ID          string
 	DESCRIPTION string
-	RELEASE string
-	CODENAME string
+	RELEASE     string
+	CODENAME    string
 }
 
 const Path = "/etc/lsb-release"
 
-func formatValue(s string)(string){
-	s=strings.TrimSpace(s)
-	s=strings.Trim(s, "\"")
+func formatValue(s string) string {
+	s = strings.TrimSpace(s)
+	s = strings.Trim(s, "\"")
 	return s
 }
 
-func Read()(*LsbRelease, error){
+func Read() (*LsbRelease, error) {
 	b, err := os.ReadFile(Path)
-	if err !=nil{
+	if err != nil {
 		return nil, err
 	}
 
 	lsb := LsbRelease{}
 	setcount := 0
-	for _, linestr:= range strings.Split(string(b),  "\n"){
+	for _, linestr := range strings.Split(string(b), "\n") {
 		line := strings.Split(linestr, "=")
 		if len(line) < 2 {
 			continue
 		}
 		value := formatValue(line[1])
 		setcount++
-		switch strings.TrimSpace(line[0]){
-			case "DISTRIB_ID":
-				lsb.ID=value
-			case "DISTRIB_DESCRIPTION":
-				lsb.DESCRIPTION=value
-			case "DISTRIB_RELEASE":
-				lsb.RELEASE=value
-			case "DISTRIB_CODENAME":
-				lsb.CODENAME=value
-			default:
-				setcount--
+		switch strings.TrimSpace(line[0]) {
+		case "DISTRIB_ID":
+			lsb.ID = value
+		case "DISTRIB_DESCRIPTION":
+			lsb.DESCRIPTION = value
+		case "DISTRIB_RELEASE":
+			lsb.RELEASE = value
+		case "DISTRIB_CODENAME":
+			lsb.CODENAME = value
+		default:
+			setcount--
 		}
 	}
 
-	if setcount <= 0{
+	if setcount <= 0 {
 		//return nil, nil
 		// 何も代入されていない場合の処理を書く
 	}

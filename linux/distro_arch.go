@@ -7,23 +7,23 @@ import (
 	"github.com/Hayao0819/go-distro/pkgmgr"
 )
 
-var	Arch  = &Linux{
-	id: "arch",
+var Arch = &Linux{
+	id:   "arch",
 	name: "Arch Linux",
-	verfunc: func()(ostype.V){
+	verfunc: func() ostype.V {
 		return Version{
-			id: "rolling",
+			id:       "rolling",
 			codename: "rolling",
 		}
 	},
-	require: func()(bool){
+	require: func() bool {
 		// /etc/arch-releaseが存在するか
 		if _, err := os.Stat("/etc/arch-release"); err != nil {
 			return true
 		}
 
 		// pacmanが存在するか
-		if ! pkgmgr.Pacman.Installed(){
+		if !pkgmgr.Pacman.Installed() {
 			return false
 		}
 
@@ -31,7 +31,6 @@ var	Arch  = &Linux{
 		if OSRelease.ID != "arch" {
 			return false
 		}
-		
 
 		// pacmanがインストールされている かつ os-releaseのidがarch
 		return true

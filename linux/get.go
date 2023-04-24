@@ -13,7 +13,7 @@ func Get() ostype.F {
 
 	// 各ディストリビューションの判定
 	for _, d := range DistroList {
-		if d==Other{
+		if d == Other {
 			continue
 		}
 		if d.require != nil && d.require() {

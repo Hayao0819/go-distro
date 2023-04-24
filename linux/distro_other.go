@@ -7,25 +7,22 @@ import (
 	//"github.com/Hayao0819/go-distro/pkgmgr"
 )
 
-
-
-var Other  = &Linux{
-	id: "other",
+var Other = &Linux{
+	id:   "other",
 	name: "other",
-	verfunc: func()(ostype.V){
+	verfunc: func() ostype.V {
 		return Version{
-			id: "none",
+			id:       "none",
 			codename: "none",
 		}
 	},
-	require: func()(bool){
+	require: func() bool {
 		return true
 	},
 }
 
-
-var	RHEL   = &Linux{
-	id: "rhel",
+var RHEL = &Linux{
+	id:   "rhel",
 	name: "Red Hat Enterprise Linux",
 }
-var	CentOS = &Linux{id: "centos"}
+var CentOS = &Linux{id: "centos"}

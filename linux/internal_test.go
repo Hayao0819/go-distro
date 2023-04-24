@@ -29,5 +29,3 @@ func TestConstValue(t *testing.T) {
 		assert.Equal(t, test.c.String(), test.s)
 	}
 }
-
-

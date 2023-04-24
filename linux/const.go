@@ -7,4 +7,3 @@ import (
 
 var OSRelease osrelease.OSRelease
 var LSBRelease *lsbrelease.LsbRelease
-

@@ -7,16 +7,16 @@ import (
 	"github.com/Hayao0819/go-distro/pkgmgr"
 )
 
-var	Debian = &Linux{
-	id: "debian",
+var Debian = &Linux{
+	id:   "debian",
 	name: "Debian",
-	require: func()(bool){
+	require: func() bool {
 		// os-releaseのid
 		if OSRelease.ID != "debian" {
 			return false
 		}
 
-		if ! pkgmgr.Dpkg.Installed(){
+		if !pkgmgr.Dpkg.Installed() {
 			return false
 		}
 

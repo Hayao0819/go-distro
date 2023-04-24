@@ -5,6 +5,7 @@ import (
 )
 
 type G int
+
 const (
 	Aix G = iota
 	Android
@@ -22,22 +23,37 @@ const (
 	Windows
 )
 
-func Get()(G){
+func Get() G {
 	switch runtime.GOOS {
-		case "AIX": return Aix
-		case "android": return Android
-		case "darwin": return Darwin
-		case "dragonfly": return Dragonfly
-		case "freebsd": return Freebsd
-		case "illumos": return Illumos
-		case "ios": return Ios
-		case "js": return Js
-		case "linux": return Linux
-		case "netbsd": return Netbsd
-		case "openbsd": return Openbsd
-		case "plan9": return Plan9
-		case "solaris": return Solaris
-		case "windows": return Windows
-		default: return -1
+	case "AIX":
+		return Aix
+	case "android":
+		return Android
+	case "darwin":
+		return Darwin
+	case "dragonfly":
+		return Dragonfly
+	case "freebsd":
+		return Freebsd
+	case "illumos":
+		return Illumos
+	case "ios":
+		return Ios
+	case "js":
+		return Js
+	case "linux":
+		return Linux
+	case "netbsd":
+		return Netbsd
+	case "openbsd":
+		return Openbsd
+	case "plan9":
+		return Plan9
+	case "solaris":
+		return Solaris
+	case "windows":
+		return Windows
+	default:
+		return -1
 	}
 }
