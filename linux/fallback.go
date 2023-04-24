@@ -8,22 +8,18 @@ import (
 	"github.com/ashcrow/osrelease"
 )
 
-
+// idと定数の関連付け
 func getFromID(id string) *Linux {
-	switch id {
-	case "debian":
-		return Debian
-	case "arch":
-		return Arch
-	case "ubuntu":
-		return Ubuntu
-	case "centos":
-		return CentOS
-	default:
-		return Other
+	for _, d := range DistroList {
+		if d.id == id {
+			return d
+		}
 	}
+	return Other
 }
 
+// /etc/os-releaseのIDの値から取得
+// requireが定義されていないディストリのFallback
 func getFromOSRelease() (ostype.F, error) {
 	o, err := osrelease.New()
 	if err != nil {
@@ -49,6 +45,8 @@ func getFromOSRelease() (ostype.F, error) {
 	return Other, nil
 }
 
+// /etc/lsb-releaseのIDの値から取得
+// requireが定義されていないディストリのFallback
 func getFromLsbRelease() (ostype.F, error) {
 	l, err := lsbrelease.Read()
 	if err != nil {

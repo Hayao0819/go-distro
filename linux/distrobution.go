@@ -17,7 +17,8 @@ var DistroList []*Linux = []*Linux{
 }
 
 var Other  = &Linux{
-	value: "other",
+	id: "other",
+	name: "other",
 	verfunc: func()(ostype.V){
 		return Version{
 			id: "none",
@@ -29,8 +30,9 @@ var Other  = &Linux{
 	},
 }
 
-var	Arch   = &Linux{
-	value: "arch",
+var	Arch  = &Linux{
+	id: "arch",
+	name: "Arch Linux",
 	verfunc: func()(ostype.V){
 		return Version{
 			id: "rolling",
@@ -53,7 +55,8 @@ var	Arch   = &Linux{
 		return false
 	},
 }
-var	Debian = &Linux{value: "debian"}
-var	Ubuntu = &Linux{value: "ubuntu"}
-var	RHEL   = &Linux{value: "rhel"}
-var	CentOS = &Linux{value: "centos"}
+
+var	Debian = &Linux{id: "debian"}
+var	Ubuntu = &Linux{id: "ubuntu"}
+var	RHEL   = &Linux{id: "rhel"}
+var	CentOS = &Linux{id: "centos"}

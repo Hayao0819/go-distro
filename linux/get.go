@@ -1,8 +1,16 @@
 package linux
 
-import "github.com/Hayao0819/go-distro/ostype"
+import (
+	"github.com/Hayao0819/go-distro/lsbrelease"
+	"github.com/Hayao0819/go-distro/ostype"
+	"github.com/ashcrow/osrelease"
+)
 
 func Get() ostype.F {
+	// os-releaseの読み込み
+	OSRelease, _ = osrelease.New()
+	LSBRelease, _ = lsbrelease.Read()
+
 	// 各ディストリビューションの判定
 	for _, d := range DistroList {
 		if d==Other{
