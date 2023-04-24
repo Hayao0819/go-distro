@@ -9,5 +9,5 @@ import (
 
 func TestGet(t *testing.T) {
 	l := linux.Get()
-	fmt.Println(l.String())
+	fmt.Println(l.ID())
 }

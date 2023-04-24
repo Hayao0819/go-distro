@@ -9,5 +9,5 @@ import (
 
 func TestGet(t *testing.T) {
 	d := darwin.Get()
-	fmt.Println(d.String())
+	fmt.Println(d.ID())
 }

@@ -26,6 +26,6 @@ func TestConstValue(t *testing.T) {
 	}
 
 	for _, test := range testcase {
-		assert.Equal(t, test.c.String(), test.s)
+		assert.Equal(t, test.c.ID(), test.s)
 	}
 }

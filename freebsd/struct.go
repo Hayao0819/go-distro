@@ -2,38 +2,36 @@ package freebsd
 
 import "github.com/Hayao0819/go-distro/ostype"
 
-type FreeBSD struct{
-	id string
-	name string
+type FreeBSD struct {
+	id      string
+	name    string
 	verfunc func() ostype.V
 	require func() bool
 }
 
-type Version struct{
-	id string
+type Version struct {
+	id       string
 	codename string
 }
 
-func (v Version) ID() string{
+func (v Version) ID() string {
 	return v.id
 }
 
-func (v Version) CodeName() string{
+func (v Version) CodeName() string {
 	return v.codename
 }
 
-func (f FreeBSD) String() string{
+func (f FreeBSD) String() string {
 	return f.id
 }
 
-func (f FreeBSD) Version() ostype.V{
-	if f.verfunc == nil{
+func (f FreeBSD) Version() ostype.V {
+	if f.verfunc == nil {
 		return Version{
-			id: "none",
+			id:       "none",
 			codename: "none",
 		}
 	}
 	return f.verfunc()
 }
-
-

@@ -10,13 +10,13 @@ import (
 
 func main() {
 	d := distro.Get()
-	println("Current ID      : " + d.String())
+	println("Current ID      : " + d.Name())
 	println("Current CodeName: " + d.Version().CodeName())
 	println("Supported Linux : " + func() string {
 		var s []string
 		for _, l := range linux.DistroList {
 			if l != linux.Other {
-				s = append(s, l.String())
+				s = append(s, l.ID())
 			}
 		}
 		return strings.Join(s, ", ")
@@ -25,7 +25,7 @@ func main() {
 		var s []string
 		for _, m := range darwin.VersionList {
 			if m != &darwin.Other {
-				s = append(s, m.String())
+				s = append(s, m.ID())
 			}
 		}
 		return strings.Join(s, ", ")

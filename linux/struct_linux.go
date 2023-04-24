@@ -9,9 +9,14 @@ type Linux struct {
 	require func() bool     // このディストリビューションであるかを判定する関数
 }
 
-func (l Linux) String() string {
+func (l Linux) ID() string {
 	return l.id
 }
+
+func (l Linux)Name()string{
+	return l.name
+}
+
 func (l Linux) Version() ostype.V {
 	if l.verfunc == nil {
 		return Version{
