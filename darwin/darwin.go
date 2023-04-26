@@ -21,10 +21,14 @@ func (d Version) ID() string {
 	return d.value
 }
 
-func (d Version) CodeName() string {
+func (d Version) FullName() string {
 	// replace "hoge-fugo" to "Hoge Fugo"
 	//return strings.Title(strings.ReplaceAll(d.value, "-", " "))
 	return cases.Title(language.Und).String(strings.ReplaceAll(d.value, "-", " "))
+}
+
+func (d Version) CodeName() string {
+	return d.version
 }
 
 func (o OS) Name() string {

@@ -2,6 +2,7 @@ package linux
 
 import (
 	"os"
+	"strings"
 
 	"github.com/Hayao0819/go-distro/ostype"
 	"github.com/Hayao0819/go-distro/pkgmgr"
@@ -29,21 +30,30 @@ var Ubuntu = &Linux{
 		return true
 	},
 	verfunc: func() ostype.V {
-		switch OSRelease.VERSION_ID {
-		case "18.04":
+
+		codename := OSRelease.ADDITIONAL_FIELDS["UBUNTU_CODENAME"]
+		if strings.TrimSpace(codename) == "" {
+			codename = OSRelease.VERSION_CODENAME
+		}
+
+		switch codename {
+		case "bionic":
 			return Version{
-				id:       "bionic",
-				codename: "Bionic Beaver",
+				id      : "18.04",
+				codename:       "bionic",
+				fullname: "Bionic Beaver",
 			}
-		case "16.04":
+		case "xenial":
 			return Version{
-				id:       "xenial",
-				codename: "Xenial Xerus",
+				id      : "16.04",
+				codename:       "xenial",
+				fullname: "Xenial Xerus",
 			}
 		default:
 			return Version{
-				id:       "none",
-				codename: "none",
+				id      : OSRelease.VERSION_ID,
+				codename:       OSRelease.VERSION_CODENAME,
+				fullname: strings.TrimSuffix(strings.Split(OSRelease.VERSION, "(")[1], ")"),
 			}
 		}
 	},

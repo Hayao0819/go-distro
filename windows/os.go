@@ -8,6 +8,7 @@ import (
 
 type Version struct {
 	codename string
+	fullname string
 	id  string
 }
 
@@ -33,29 +34,37 @@ func (v Version)CodeName() string{
 	return v.codename
 }
 
+func (v Version)FullName() string{
+	return v.codename
+}
+
 var (
 	Other = &Win{
 		version: Version{
 			id:       "other",
+			fullname: "other",
 			codename: "other",
 		},
 	}
 	Win7 = &Win{
 		version: Version{
 			id:       "7",
-			codename: "Vienna",
+			codename: "vienna",
+			fullname: "Vienna",
 		},
 	}
 	Win10 = &Win{
 		version: Version{
 			id:       "10",
-			codename: "Redstone",
+			codename: "redstone",
+			fullname: "Redstone",
 		},
 	}
 	Win11 = &Win{
 		version: Version{
 			id:       "11",
-			codename: "Sun Valley",
+			fullname: "Sun Valley",
+			codename: "sunvalley",
 		},
 	}
 )

@@ -6,6 +6,7 @@ package freebsd
 
 type Version struct {
 	id       string
+	fullname string
 	codename string
 }
 
@@ -17,3 +18,6 @@ func (v Version) CodeName() string {
 	return v.codename
 }
 
+func (v Version) FullName() string {
+	return v.fullname
+}

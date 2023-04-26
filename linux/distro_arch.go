@@ -13,6 +13,7 @@ var Arch = &Linux{
 	verfunc: func() ostype.V {
 		return Version{
 			id:       "rolling",
+			fullname: "Rolling Release",
 			codename: "rolling",
 		}
 	},

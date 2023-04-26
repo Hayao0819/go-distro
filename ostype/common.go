@@ -8,8 +8,9 @@ type F interface {
 
 // バージョン
 type V interface {
-	ID() string // バージョンID (空白を含まない小文字の文字列)
-	CodeName() string // 表示用の文字列 (空白を含む文字列)
+	ID() string // バージョンID (通常は数字の文字列)
+	FullName() string // 表示用の文字列 (空白を含む文字列)
+	CodeName() string // コードネーム (空白を含まない小文字の文字列)
 }
 
 type other struct{}
@@ -23,8 +24,13 @@ func (o other) ID()string{
 }
 
 func (o other) CodeName() string {
+	return "Other"
+}
+
+func (o other) FullName() string {
 	return "other"
 }
+
 func (o other) Version() V {
 	return o
 }
