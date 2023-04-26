@@ -9,6 +9,11 @@ import (
 	"github.com/Hayao0819/go-distro/ostype"
 )
 
+// Support list
+var LinuxList = linux.DistroList
+var DarwinList = darwin.VersionList
+//var WindowsList = windows.VersionList
+
 func Get() ostype.F {
 	g := goos.Get()
 	switch g {
