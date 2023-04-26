@@ -1,5 +1,9 @@
 ## Go-Distro
 
+GolangでOSとそのバージョン、コードネームを取得するためのライブラリです。
+
+現状では自分が使っているOSしかサポートしていません。
+
 ### License
 
 You can choose whichever you prefer.
