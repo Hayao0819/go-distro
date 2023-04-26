@@ -30,7 +30,7 @@ func main() {
 		var s []string
 		for _, m := range darwin.VersionList {
 			if m != &darwin.Other {
-				s = append(s, m.ID())
+				s = append(s, m.Version().FullName())
 			}
 		}
 		return strings.Join(s, ", ")
