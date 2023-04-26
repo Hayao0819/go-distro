@@ -10,8 +10,8 @@ import (
 )
 
 // Support list
-var LinuxList = linux.DistroList
-var DarwinList = darwin.VersionList
+var LinuxList  = &linux.DistroList
+var DarwinList = &darwin.VersionList
 //var WindowsList = windows.VersionList
 
 func Get() ostype.F {
