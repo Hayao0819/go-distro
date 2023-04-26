@@ -19,7 +19,7 @@ var Arch = &Linux{
 	},
 	require: func() bool {
 		// /etc/arch-releaseが存在するか
-		if _, err := os.Stat("/etc/arch-release"); err != nil {
+		if _, err := os.Stat("/etc/arch-release"); err == nil {
 			return true
 		}
 
