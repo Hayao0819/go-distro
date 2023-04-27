@@ -3,12 +3,26 @@
 package darwin
 
 import (
-	"github.com/Hayao0819/sysinfo-ng"
+	"os"
+
 	"github.com/Hayao0819/go-distro/ostype"
+	"howett.net/plist"
 )
 
 func Get() ostype.F {
-	var v sysinfo.SysInfo
-	v.GetSysInfo()
-	return getFromVersion(v.OS.Release)
+	info := struct{
+		release string `plist:"ProductVersion"`
+	}{}
+
+
+	sysxml, err := os.Open("/System/Library/CoreServices/SystemVersion.plist") 
+	if err !=nil{
+		return Other
+	}
+	decoder := plist.NewDecoder(sysxml)
+	if err := decoder.Decode(&info); err !=nil{
+		return Other
+	}
+
+	return getFromVersion(info.release)
 }
