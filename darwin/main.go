@@ -4,7 +4,6 @@ import (
 	"strings"
 
 	"github.com/Hayao0819/go-distro/ostype"
-	"github.com/Hayao0819/sysinfo-ng"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 )
@@ -101,8 +100,4 @@ func getFromVersion(v string) ostype.F {
 	return Other
 }
 
-func Get() ostype.F {
-	var v sysinfo.SysInfo
-	v.GetSysInfo()
-	return getFromVersion(v.OS.Release)
-}
+
