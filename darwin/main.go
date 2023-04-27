@@ -1,6 +1,7 @@
 package darwin
 
 import (
+	"fmt"
 	"strings"
 
 	"github.com/Hayao0819/go-distro/ostype"
@@ -17,7 +18,7 @@ type Version struct {
 type OS Version
 
 func (d Version) ID() string {
-	return d.value
+	return d.version
 }
 
 func (d Version) FullName() string {
@@ -27,7 +28,7 @@ func (d Version) FullName() string {
 }
 
 func (d Version) CodeName() string {
-	return d.version
+	return d.value
 }
 
 func (o OS) Name() string {
@@ -93,6 +94,7 @@ func getFromVersion(v string) ostype.F {
 		if i == &Other {
 			continue
 		}
+		fmt.Println("v: "+ v + " id: " + i.Version().ID())
 		if strings.HasPrefix(v, i.Version().ID()) {
 			return i
 		}
