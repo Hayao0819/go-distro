@@ -57,3 +57,23 @@ func Get() G {
 		return -1
 	}
 }
+
+var UnixLike = []G{
+	Darwin,
+	Dragonfly,
+	Freebsd,
+	Linux,
+}
+
+func (g G) IsUnix() bool {
+	for _, v := range UnixLike {
+		if g == v {
+			return true
+		}
+	}
+	return false
+}
+
+func IsUnix()bool{
+	return Get().IsUnix()
+}
