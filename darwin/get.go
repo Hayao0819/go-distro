@@ -27,7 +27,7 @@ func Get() ostype.F {
 	if err := decoder.Decode(&info); err !=nil{
 		return Other
 	}
-	println(info.ProductVersion)
+	//println(info.ProductVersion)
 
 	return getFromVersion(info.ProductVersion)
 }
