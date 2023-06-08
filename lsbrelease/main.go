@@ -1,10 +1,12 @@
 package lsbrelease
 
 import (
+	"errors"
 	"os"
 	"strings"
 )
 
+// /etc/lsb-releaseの内容
 type LsbRelease struct {
 	ID          string
 	DESCRIPTION string
@@ -12,7 +14,10 @@ type LsbRelease struct {
 	CODENAME    string
 }
 
+// lsb-releaseのファイルパス
 const Path = "/etc/lsb-release"
+
+var ErrEmpty error = errors.New("Empty lsb-release")
 
 func formatValue(s string) string {
 	s = strings.TrimSpace(s)
@@ -52,8 +57,8 @@ func Read() (*LsbRelease, error) {
 	if setcount <= 0 {
 		//return nil, nil
 		// 何も代入されていない場合の処理を書く
+		return nil, ErrEmpty
 	}
 
 	return &lsb, nil
-
 }

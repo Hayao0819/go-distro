@@ -7,6 +7,7 @@ import (
 	"howett.net/plist"
 )
 
+// macOSの詳細を返します
 func Get() ostype.F {
 	info := struct{
 		BuildID string `plist:"BuildID"`

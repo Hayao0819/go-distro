@@ -4,6 +4,7 @@ import (
 	"runtime"
 )
 
+// 各GOOSのID
 type G int
 
 const (
@@ -23,6 +24,7 @@ const (
 	Windows
 )
 
+// runtime.GOOSの文字列から対応するIDを返します
 func Get() G {
 	switch runtime.GOOS {
 	case "AIX":
@@ -58,6 +60,7 @@ func Get() G {
 	}
 }
 
+// UnixLikeなOSの一覧
 var UnixLike = []G{
 	Darwin,
 	Dragonfly,
@@ -65,6 +68,7 @@ var UnixLike = []G{
 	Linux,
 }
 
+// UnixLikeかどうかを確認します
 func (g G) IsUnix() bool {
 	for _, v := range UnixLike {
 		if g == v {
@@ -74,6 +78,7 @@ func (g G) IsUnix() bool {
 	return false
 }
 
+// 現在のOSがUnixLikeかどうか確認します
 func IsUnix()bool{
 	return Get().IsUnix()
 }

@@ -2,6 +2,7 @@ package linux
 
 import "github.com/Hayao0819/go-distro/ostype"
 
+// Linuxディストリビューションを判別するための構造体
 type Linux struct {
 	id      string          // /etc/os-releaseのid
 	name    string          // 小文字+大文字 空白あり
