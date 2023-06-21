@@ -79,6 +79,6 @@ func (g G) IsUnix() bool {
 }
 
 // 現在のOSがUnixLikeかどうか確認します
-func IsUnix()bool{
+func IsUnix() bool {
 	return Get().IsUnix()
 }

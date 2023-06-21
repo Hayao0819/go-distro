@@ -5,36 +5,35 @@ import (
 	//"golang.org/x/sys/windows/registry"
 )
 
-
 type Version struct {
 	codename string
 	fullname string
-	id  string
+	id       string
 }
 
 type Win struct {
 	version ostype.V
 }
 
-func (w Win)ID() string{
+func (w Win) ID() string {
 	return "windows"
 }
 
-func (w Win)Name() string{
+func (w Win) Name() string {
 	return "Windows"
 }
-func (w Win)Version() ostype.V{
+func (w Win) Version() ostype.V {
 	return w.version
 }
 
-func (v Version)ID() string{
+func (v Version) ID() string {
 	return v.id
 }
-func (v Version)CodeName() string{
+func (v Version) CodeName() string {
 	return v.codename
 }
 
-func (v Version)FullName() string{
+func (v Version) FullName() string {
 	return v.codename
 }
 
@@ -70,6 +69,6 @@ var (
 )
 
 // Todo: Get Windows Version
-func Get()(*Win){
+func Get() *Win {
 	return Other
 }

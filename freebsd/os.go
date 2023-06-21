@@ -9,12 +9,11 @@ type Bsd struct {
 	require func() bool
 }
 
-
 func (f Bsd) ID() string {
 	return f.id
 }
 
-func  (f Bsd) Name() string{
+func (f Bsd) Name() string {
 	return f.name
 }
 
@@ -27,7 +26,6 @@ func (f Bsd) Version() ostype.V {
 	}
 	return f.verfunc()
 }
-
 
 var FreeBSD = &Bsd{
 	id:   "freebsd",

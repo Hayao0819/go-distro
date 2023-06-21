@@ -9,7 +9,6 @@ import (
 	"golang.org/x/text/language"
 )
 
-
 type Version struct {
 	value   string
 	version string
@@ -101,5 +100,3 @@ func getFromVersion(v string) ostype.F {
 	}
 	return Other
 }
-
-

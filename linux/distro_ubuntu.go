@@ -39,20 +39,20 @@ var Ubuntu = &Linux{
 		switch codename {
 		case "bionic":
 			return Version{
-				id      : "18.04",
-				codename:       "bionic",
+				id:       "18.04",
+				codename: "bionic",
 				fullname: "Bionic Beaver",
 			}
 		case "xenial":
 			return Version{
-				id      : "16.04",
-				codename:       "xenial",
+				id:       "16.04",
+				codename: "xenial",
 				fullname: "Xenial Xerus",
 			}
 		default:
 			return Version{
-				id      : OSRelease.VERSION_ID,
-				codename:       OSRelease.VERSION_CODENAME,
+				id:       OSRelease.VERSION_ID,
+				codename: OSRelease.VERSION_CODENAME,
 				fullname: strings.TrimSuffix(strings.Split(OSRelease.VERSION, "(")[1], ")"),
 			}
 		}

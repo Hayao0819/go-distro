@@ -11,7 +11,7 @@ import (
 
 func main() {
 	d := distro.Get()
-	if goos.Get() ==  goos.Linux{
+	if goos.Get() == goos.Linux {
 		println("OSRelease ID      : " + linux.OSRelease.ID)
 	}
 	println("Detected Name     : " + d.Name())

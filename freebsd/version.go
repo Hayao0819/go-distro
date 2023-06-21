@@ -2,8 +2,6 @@ package freebsd
 
 //import "github.com/Hayao0819/go-distro/ostype"
 
-
-
 type Version struct {
 	id       string
 	fullname string

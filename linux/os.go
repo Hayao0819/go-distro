@@ -14,7 +14,7 @@ func (l Linux) ID() string {
 	return l.id
 }
 
-func (l Linux)Name()string{
+func (l Linux) Name() string {
 	return l.name
 }
 
