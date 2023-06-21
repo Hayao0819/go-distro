@@ -31,7 +31,5 @@ func Get() ostype.F {
 	//fmt.Println(sysxml)
 	//println(info.ProductVersion)
 
-
-	println(getFromVersion("10.16").Version().ID())
 	return getFromVersion(info.ProductVersion)
 }
