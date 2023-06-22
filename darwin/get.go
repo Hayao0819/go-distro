@@ -2,22 +2,58 @@ package darwin
 
 import (
 	//"fmt"
+	"os"
 	"os/exec"
 	"strings"
 
 	"github.com/Hayao0819/go-distro/ostype"
+	"howett.net/plist"
 )
 
+// macOSの詳細を返します
+func getVersionIdFromPlist() string {
+	info := struct {
+		BuildID                   string `plist:"BuildID"`
+		ProductBuildVersion       string `plist:"ProductBuildVersion"`
+		ProductCopyright          string `plist:"ProductCopyright"`
+		ProductName               string `plist:"ProductName"`
+		ProductUserVisibleVersion string `plist:"ProductUserVisibleVersion"`
+		ProductVersion            string `plist:"ProductVersion"`
+		IOSSupportVersion         string `plist:"iOSSupportVersion"`
+	}{}
+
+	sysxml, err := os.Open("/System/Library/CoreServices/SystemVersion.plist")
+	if err != nil {
+		return ""
+	}
+	decoder := plist.NewDecoder(sysxml)
+	if err := decoder.Decode(&info); err != nil {
+		return ""
+	}
+	//fmt.Println(sysxml)
+	//println(info.ProductVersion)
+
+	return info.ProductVersion
+}
+
 // sw_versの出力結果からmacOSのProductVersionを返します
-func Get() ostype.F {
+func getVersionIdFromSwVers() string {
 	cmdstr := "sw_vers | grep ProductVersion | cut -f 3"
 	out, err := exec.Command("sh", "-c", cmdstr).Output()
 
 	if err != nil {
-		return Other
+		return ""
 	}
 
-	ProductVersion := strings.TrimSpace(string(out))
+	return strings.TrimSpace(string(out))
+}
 
-	return getFromVersion(ProductVersion)
+
+func Get() ostype.F{
+	version := getVersionIdFromSwVers()
+	if version == ""{
+		version = getVersionIdFromPlist()
+	}
+
+	return getFromVersion(version)
 }
