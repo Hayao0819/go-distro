@@ -1,10 +1,10 @@
 ## Go-Distro
 
-Golang で OS とそのバージョン、コードネームを取得するためのライブラリです。
+This is a library to get the OS, its version, and its codename in Golang.
 
-現状では自分が使っている OS しかサポートしていません。
+Currently, only the OS I am using is supported.
 
-結構汎用性の高い構造似できたと思うので、ディストリビューション固有のコードを追加してくれると助かります。
+I think this liblary has generic structure, so it would be helpful if you could add distribution-specific code.
 
 ### License
 
