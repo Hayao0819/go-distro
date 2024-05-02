@@ -4,7 +4,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/Hayao0819/go-distro/ostype"
+	//"github.com/Hayao0819/go-distro/ostype"
 	"github.com/Hayao0819/go-distro/pkgmgr"
 )
 
@@ -29,7 +29,7 @@ var Ubuntu = &Linux{
 		// os-releaseのidがubuntuかつdpkgがインストールされている
 		return true
 	},
-	verfunc: func() ostype.V {
+	verfunc: func() version {
 
 		codename := OSRelease.ADDITIONAL_FIELDS["UBUNTU_CODENAME"]
 		if strings.TrimSpace(codename) == "" {
@@ -38,19 +38,19 @@ var Ubuntu = &Linux{
 
 		switch codename {
 		case "bionic":
-			return Version{
+			return version{
 				id:       "18.04",
 				codename: "bionic",
 				fullname: "Bionic Beaver",
 			}
 		case "xenial":
-			return Version{
+			return version{
 				id:       "16.04",
 				codename: "xenial",
 				fullname: "Xenial Xerus",
 			}
 		default:
-			return Version{
+			return version{
 				id:       OSRelease.VERSION_ID,
 				codename: OSRelease.VERSION_CODENAME,
 				fullname: strings.TrimSuffix(strings.Split(OSRelease.VERSION, "(")[1], ")"),

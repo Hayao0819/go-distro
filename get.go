@@ -5,7 +5,7 @@ import (
 	"github.com/Hayao0819/go-distro/freebsd"
 	"github.com/Hayao0819/go-distro/goos"
 	"github.com/Hayao0819/go-distro/linux"
-	"github.com/Hayao0819/go-distro/ostype"
+	"github.com/Hayao0819/go-distro/base"
 	"github.com/Hayao0819/go-distro/windows"
 )
 
@@ -15,7 +15,7 @@ var DarwinList = &darwin.VersionList
 
 //var WindowsList = windows.VersionList
 
-func Get() ostype.F {
+func Get() base.OS {
 	g := goos.Get()
 	switch g {
 	case goos.Linux:
@@ -27,6 +27,6 @@ func Get() ostype.F {
 	case goos.Freebsd:
 		return freebsd.Get()
 	default:
-		return ostype.Other
+		return base.Other
 	}
 }

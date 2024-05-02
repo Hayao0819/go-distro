@@ -1,40 +1,36 @@
 package freebsd
 
-import "github.com/Hayao0819/go-distro/ostype"
+import (
+	"github.com/Hayao0819/go-distro/base"
+)
 
-type Bsd struct {
-	id      string
-	name    string
-	verfunc func() ostype.V
-	require func() bool
+type freeBsd struct {
+	verFullName string
+	verCodeName string
 }
 
-func (f Bsd) ID() string {
-	return f.id
+func (f freeBsd) ID() string {
+	return "freebsd"
 }
 
-func (f Bsd) Name() string {
-	return f.name
+func (f freeBsd) FullName() string {
+	return "FreeBSD"
 }
 
-func (f Bsd) Version() ostype.V {
-	if f.verfunc == nil {
-		return Version{
-			id:       "none",
-			codename: "none",
-		}
-	}
-	return f.verfunc()
+func (f freeBsd) VerID() string {
+	return "none"
 }
 
-var FreeBSD = &Bsd{
-	id:   "freebsd",
-	name: "FreeBSD",
+func (f freeBsd) VerFullName() string {
+	return f.verFullName
 }
 
-func Get() ostype.F {
-	if FreeBSD.require != nil && !FreeBSD.require() {
-		return ostype.Other
-	}
+func (f freeBsd) VerCodeName() string {
+	return f.verCodeName
+}
+
+var FreeBSD = &freeBsd{}
+
+func Get() base.OS {
 	return FreeBSD
 }

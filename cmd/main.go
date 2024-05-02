@@ -14,9 +14,9 @@ func main() {
 	if goos.Get() == goos.Linux {
 		println("OSRelease ID      : " + linux.OSRelease.ID)
 	}
-	println("Detected Name     : " + d.Name())
+	println("Detected Name     : " + d.FullName())
 	println("Detected ID       : " + d.ID())
-	println("Detected CodeName : " + d.Version().CodeName())
+	println("Detected CodeName : " + d.VerCodeName())
 	println("Supported Linux   : " + func() string {
 		var s []string
 		for _, l := range linux.DistroList {
@@ -30,7 +30,7 @@ func main() {
 		var s []string
 		for _, m := range darwin.VersionList {
 			if m != &darwin.Other {
-				s = append(s, m.Version().FullName())
+				s = append(s, m.VerFullName())
 			}
 		}
 		return strings.Join(s, ", ")

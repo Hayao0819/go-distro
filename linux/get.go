@@ -2,11 +2,11 @@ package linux
 
 import (
 	"github.com/Hayao0819/go-distro/lsbrelease"
-	"github.com/Hayao0819/go-distro/ostype"
+	"github.com/Hayao0819/go-distro/base"
 	"github.com/ashcrow/osrelease"
 )
 
-func Get() ostype.F {
+func Get() base.OS {
 	// os-releaseの読み込み
 	OSRelease, _ = osrelease.New()
 	LSBRelease, _ = lsbrelease.Read()

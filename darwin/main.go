@@ -4,23 +4,23 @@ import (
 	//"fmt"
 	"strings"
 
-	"github.com/Hayao0819/go-distro/ostype"
+	"github.com/Hayao0819/go-distro/base"
 )
 
-type alias struct{
+type alias struct {
 	version string
-	os    *OS
+	os      *Version
 }
 
 var versionAlias = []*alias{
 	{
 		version: "10.16",
-		os: &BigSur,
+		os:      &BigSur,
 	},
 }
 
-func getFromVersion(v string) ostype.F {
-	matchs := []*OS{}
+func getFromVersion(v string) base.OS {
+	matchs := []*Version{}
 	for _, i := range VersionList {
 		if i == &Other {
 			continue
@@ -36,9 +36,9 @@ func getFromVersion(v string) ostype.F {
 			matchs = append(matchs, i)
 		}
 	}
-	
-	for _, i := range versionAlias{
-		if v == i.version{
+
+	for _, i := range versionAlias {
+		if v == i.version {
 			return i.os
 		}
 	}

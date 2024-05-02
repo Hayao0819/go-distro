@@ -6,7 +6,7 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/Hayao0819/go-distro/ostype"
+	"github.com/Hayao0819/go-distro/base"
 	"howett.net/plist"
 )
 
@@ -48,10 +48,9 @@ func getVersionIdFromSwVers() string {
 	return strings.TrimSpace(string(out))
 }
 
-
-func Get() ostype.F{
+func Get() base.OS {
 	version := getVersionIdFromSwVers()
-	if version == ""{
+	if version == "" {
 		version = getVersionIdFromPlist()
 	}
 

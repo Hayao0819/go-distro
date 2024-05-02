@@ -3,15 +3,15 @@ package linux
 import (
 	//"os"
 
-	"github.com/Hayao0819/go-distro/ostype"
+	//"github.com/Hayao0819/go-distro/ostype"
 	//"github.com/Hayao0819/go-distro/pkgmgr"
 )
 
 var Other = &Linux{
 	id:   "other",
 	name: "other",
-	verfunc: func() ostype.V {
-		return Version{
+	verfunc: func() version {
+		return version{
 			id:       "none",
 			codename: "none",
 		}

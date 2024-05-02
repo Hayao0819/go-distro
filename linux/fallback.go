@@ -1,7 +1,7 @@
 package linux
 
 import (
-	"github.com/Hayao0819/go-distro/ostype"
+	"github.com/Hayao0819/go-distro/base"
 	"strings"
 )
 
@@ -17,7 +17,7 @@ func getFromID(id string) *Linux {
 
 // /etc/os-releaseのIDの値から取得
 // requireが定義されていないディストリのFallback
-func getFromOSRelease() (ostype.F, error) {
+func getFromOSRelease() (base.OS, error) {
 
 	l := &Linux{}
 
@@ -40,6 +40,6 @@ func getFromOSRelease() (ostype.F, error) {
 
 // /etc/lsb-releaseのIDの値から取得
 // requireが定義されていないディストリのFallback
-func getFromLsbRelease() (ostype.F, error) {
+func getFromLsbRelease() (base.OS, error) {
 	return getFromID(LSBRelease.ID), nil
 }

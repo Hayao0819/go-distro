@@ -1,74 +1,62 @@
 package windows
 
 import (
-	"github.com/Hayao0819/go-distro/ostype"
+	"github.com/Hayao0819/go-distro/base"
 	//"golang.org/x/sys/windows/registry"
 )
 
-type Version struct {
+type win struct {
 	codename string
 	fullname string
 	id       string
 }
 
-type Win struct {
-	version ostype.V
-}
-
-func (w Win) ID() string {
+func (w win) ID() string {
 	return "windows"
 }
 
-func (w Win) Name() string {
+func (w win) FullName() string {
 	return "Windows"
 }
-func (w Win) Version() ostype.V {
-	return w.version
+
+func (w win) VerID() string {
+	return w.id
+}
+func (w win) VerCodeName() string {
+	return w.codename
 }
 
-func (v Version) ID() string {
-	return v.id
-}
-func (v Version) CodeName() string {
-	return v.codename
-}
-
-func (v Version) FullName() string {
-	return v.codename
+func (w win) VerFullName() string {
+	return w.fullname
 }
 
 var (
-	Other = &Win{
-		version: Version{
-			id:       "other",
-			fullname: "other",
-			codename: "other",
-		},
+	Other = &win{
+
+		id:       "other",
+		fullname: "other",
+		codename: "other",
 	}
-	Win7 = &Win{
-		version: Version{
-			id:       "7",
-			codename: "vienna",
-			fullname: "Vienna",
-		},
+	Win7 = &win{
+
+		id:       "7",
+		codename: "vienna",
+		fullname: "Vienna",
 	}
-	Win10 = &Win{
-		version: Version{
-			id:       "10",
-			codename: "redstone",
-			fullname: "Redstone",
-		},
+	Win10 = &win{
+
+		id:       "10",
+		codename: "redstone",
+		fullname: "Redstone",
 	}
-	Win11 = &Win{
-		version: Version{
-			id:       "11",
-			fullname: "Sun Valley",
-			codename: "sunvalley",
-		},
+	Win11 = &win{
+		id:       "11",
+		fullname: "Sun Valley",
+		codename: "sunvalley",
 	}
 )
 
 // Todo: Get Windows Version
-func Get() *Win {
+func Get() base.OS {
 	return Other
 }

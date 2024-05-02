@@ -3,15 +3,14 @@ package linux
 import (
 	"os"
 
-	"github.com/Hayao0819/go-distro/ostype"
 	"github.com/Hayao0819/go-distro/pkgmgr"
 )
 
 var Arch = &Linux{
 	id:   "arch",
 	name: "Arch Linux",
-	verfunc: func() ostype.V {
-		return Version{
+	verfunc: func() version {
+		return version{
 			id:       "rolling",
 			fullname: "Rolling Release",
 			codename: "rolling",
