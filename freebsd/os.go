@@ -9,7 +9,7 @@ type freeBsd struct {
 	verCodeName string
 }
 
-func (f freeBsd) ID() string {
+func (f freeBsd) ID() base.ID {
 	return "freebsd"
 }
 
@@ -17,7 +17,7 @@ func (f freeBsd) FullName() string {
 	return "FreeBSD"
 }
 
-func (f freeBsd) VerID() string {
+func (f freeBsd) VerID() base.ID {
 	return "none"
 }
 

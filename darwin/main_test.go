@@ -2,12 +2,14 @@ package darwin
 
 import (
 	"testing"
+
+	"github.com/Hayao0819/go-distro/base"
 )
 
 func TestGetFromVersion(t *testing.T) {
 	testcase := []struct {
 		verstr   string
-		expectid string
+		expectid base.ID
 	}{
 		{
 			verstr:   "9.0",

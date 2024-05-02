@@ -8,10 +8,10 @@ import (
 type win struct {
 	codename string
 	fullname string
-	id       string
+	id       base.ID
 }
 
-func (w win) ID() string {
+func (w win) ID() base.ID {
 	return "windows"
 }
 
@@ -19,8 +19,8 @@ func (w win) FullName() string {
 	return "Windows"
 }
 
-func (w win) VerID() string {
-	return w.id
+func (w win) VerID() base.ID {
+	return base.ID(w.id)
 }
 func (w win) VerCodeName() string {
 	return w.codename

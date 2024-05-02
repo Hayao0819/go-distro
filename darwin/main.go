@@ -27,7 +27,7 @@ func getFromVersion(v string) base.OS {
 		}
 
 		// 完全一致
-		if v == i.ID() {
+		if v == string(i.ID()) {
 			return i
 		}
 

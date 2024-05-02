@@ -1,14 +1,15 @@
 package linux
 
 import (
-	"github.com/Hayao0819/go-distro/base"
 	"strings"
+
+	"github.com/Hayao0819/go-distro/base"
 )
 
 // idと定数の関連付け
 func getFromID(id string) *Linux {
 	for _, d := range DistroList {
-		if d.id == id {
+		if string(d.id) == id {
 			return d
 		}
 	}

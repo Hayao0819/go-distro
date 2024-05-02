@@ -3,6 +3,7 @@ package darwin
 import (
 	"strings"
 
+	"github.com/Hayao0819/go-distro/base"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 )
@@ -12,8 +13,8 @@ type Version struct {
 	version string
 }
 
-func (d Version) ID() string {
-	return d.version
+func (d Version) ID() base.ID {
+	return base.ID(d.version)
 }
 
 func (d Version) VerFullName() string {
@@ -30,6 +31,6 @@ func (Version) FullName() string {
 	return "macOS"
 }
 
-func (Version) VerID() string {
+func (Version) VerID() base.ID {
 	return "darwin"
 }

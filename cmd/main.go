@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	d := distro.Get()
+	d := distro.GetDetail()
 	if goos.Get() == goos.Linux {
 		println("OSRelease ID      : " + linux.OSRelease.ID)
 	}
@@ -21,7 +21,7 @@ func main() {
 		var s []string
 		for _, l := range linux.DistroList {
 			if l != linux.Other {
-				s = append(s, l.ID())
+				s = append(s, string(l.ID()))
 			}
 		}
 		return strings.Join(s, ", ")

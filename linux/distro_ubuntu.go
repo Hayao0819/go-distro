@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	//"github.com/Hayao0819/go-distro/ostype"
+	"github.com/Hayao0819/go-distro/base"
 	"github.com/Hayao0819/go-distro/pkgmgr"
 )
 
@@ -51,7 +52,7 @@ var Ubuntu = &Linux{
 			}
 		default:
 			return version{
-				id:       OSRelease.VERSION_ID,
+				id:       base.ID(OSRelease.VERSION_ID),
 				codename: OSRelease.VERSION_CODENAME,
 				fullname: strings.TrimSuffix(strings.Split(OSRelease.VERSION, "(")[1], ")"),
 			}
