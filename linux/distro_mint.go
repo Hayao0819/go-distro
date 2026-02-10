@@ -5,12 +5,11 @@ import (
 	"github.com/Hayao0819/go-distro/pkgmgr"
 )
 
-var Debian = &Linux{
-	id:   "debian",
-	name: "Debian",
+var LinuxMint = &Linux{
+	id:   "linuxmint",
+	name: "Linux Mint",
 	require: func() bool {
-		// os-releaseのid
-		if OSRelease.ID != "debian" {
+		if OSRelease.ID != "linuxmint" {
 			return false
 		}
 
@@ -18,13 +17,13 @@ var Debian = &Linux{
 			return false
 		}
 
-		// os-releaseのidがdebianかつdpkgがインストールされている
 		return true
 	},
 	verfunc: func() version {
+		codename := OSRelease.VERSION_CODENAME
 		return version{
 			id:       base.ID(OSRelease.VERSION_ID),
-			codename: OSRelease.VERSION_CODENAME,
+			codename: codename,
 			fullname: OSRelease.VERSION,
 		}
 	},

@@ -1,0 +1,12 @@
+FROM archlinux:latest
+
+RUN pacman -Syu --noconfirm go && pacman -Scc --noconfirm
+
+WORKDIR /app
+COPY go.mod go.sum ./
+RUN go mod download
+COPY . .
+
+RUN go build -o /test ./tests/docker/test.go
+
+CMD ["/test"]

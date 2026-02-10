@@ -66,6 +66,8 @@ var UnixLike = []G{
 	Dragonfly,
 	Freebsd,
 	Linux,
+	Netbsd,
+	Openbsd,
 }
 
 // UnixLikeかどうかを確認します

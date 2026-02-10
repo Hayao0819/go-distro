@@ -1,12 +1,14 @@
 package freebsd
 
 import (
+	"os/exec"
+	"strings"
+
 	"github.com/Hayao0819/go-distro/base"
 )
 
 type freeBsd struct {
-	verFullName string
-	verCodeName string
+	version string
 }
 
 func (f freeBsd) ID() base.ID {
@@ -18,19 +20,27 @@ func (f freeBsd) FullName() string {
 }
 
 func (f freeBsd) VerID() base.ID {
-	return "none"
+	return base.ID(f.version)
 }
 
 func (f freeBsd) VerFullName() string {
-	return f.verFullName
+	return "FreeBSD " + f.version
 }
 
 func (f freeBsd) VerCodeName() string {
-	return f.verCodeName
+	return ""
 }
 
-var FreeBSD = &freeBsd{}
+func getVersion() string {
+	out, err := exec.Command("uname", "-r").Output()
+	if err != nil {
+		return ""
+	}
+	return strings.TrimSpace(string(out))
+}
 
 func Get() base.OS {
-	return FreeBSD
+	return &freeBsd{
+		version: getVersion(),
+	}
 }

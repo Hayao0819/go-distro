@@ -40,7 +40,7 @@ func TestGetFromVersion(t *testing.T) {
 		},
 		{
 			verstr:   "10.6",
-			expectid: ShowLeopard.VerID(),
+			expectid: SnowLeopard.VerID(),
 		},
 		{
 			verstr:   "10.7",
@@ -64,11 +64,11 @@ func TestGetFromVersion(t *testing.T) {
 		},
 		{
 			verstr:   "10.12",
-			expectid: Serra.VerID(),
+			expectid: Sierra.VerID(),
 		},
 		{
 			verstr:   "10.13",
-			expectid: HighSerra.VerID(),
+			expectid: HighSierra.VerID(),
 		},
 		{
 			verstr:   "10.14",
@@ -93,6 +93,26 @@ func TestGetFromVersion(t *testing.T) {
 		{
 			verstr:   "13.3",
 			expectid: Ventura.VerID(),
+		},
+		{
+			verstr:   "14.0",
+			expectid: Sonoma.VerID(),
+		},
+		{
+			verstr:   "14.5",
+			expectid: Sonoma.VerID(),
+		},
+		{
+			verstr:   "15.0",
+			expectid: Sequoia.VerID(),
+		},
+		{
+			verstr:   "15.2",
+			expectid: Sequoia.VerID(),
+		},
+		{
+			verstr:   "26.0",
+			expectid: Tahoe.VerID(),
 		},
 	}
 

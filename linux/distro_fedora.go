@@ -5,20 +5,16 @@ import (
 	"github.com/Hayao0819/go-distro/pkgmgr"
 )
 
-var Debian = &Linux{
-	id:   "debian",
-	name: "Debian",
+var Fedora = &Linux{
+	id:   "fedora",
+	name: "Fedora Linux",
 	require: func() bool {
-		// os-releaseのid
-		if OSRelease.ID != "debian" {
+		if OSRelease.ID != "fedora" {
 			return false
 		}
-
-		if !pkgmgr.Dpkg.Installed() {
+		if !pkgmgr.Dnf.Installed() && !pkgmgr.Rpm.Installed() {
 			return false
 		}
-
-		// os-releaseのidがdebianかつdpkgがインストールされている
 		return true
 	},
 	verfunc: func() version {

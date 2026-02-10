@@ -6,14 +6,15 @@ import (
 	"github.com/Hayao0819/go-distro/freebsd"
 	"github.com/Hayao0819/go-distro/goos"
 	"github.com/Hayao0819/go-distro/linux"
+	"github.com/Hayao0819/go-distro/netbsd"
+	"github.com/Hayao0819/go-distro/openbsd"
 	"github.com/Hayao0819/go-distro/windows"
 )
 
 // Support list
 var LinuxList = &linux.DistroList
 var DarwinList = &darwin.VersionList
-
-//var WindowsList = windows.VersionList
+var WindowsList = &windows.VersionList
 
 func GetDetail() base.OS {
 	g := goos.Get()
@@ -26,6 +27,10 @@ func GetDetail() base.OS {
 		return windows.Get()
 	case goos.Freebsd:
 		return freebsd.Get()
+	case goos.Openbsd:
+		return openbsd.Get()
+	case goos.Netbsd:
+		return netbsd.Get()
 	default:
 		return base.Other
 	}

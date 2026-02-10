@@ -1,0 +1,12 @@
+FROM opensuse/tumbleweed
+
+RUN zypper -n install go && zypper clean -a
+
+WORKDIR /app
+COPY go.mod go.sum ./
+RUN go mod download
+COPY . .
+
+RUN go build -o /test ./tests/docker/test.go
+
+CMD ["/test"]

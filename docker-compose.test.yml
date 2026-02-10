@@ -1,0 +1,36 @@
+services:
+  test-alpine:
+    build:
+      context: .
+      dockerfile: tests/docker/Dockerfile.alpine
+    container_name: go-distro-test-alpine
+
+  test-debian:
+    build:
+      context: .
+      dockerfile: tests/docker/Dockerfile.debian
+    container_name: go-distro-test-debian
+
+  test-ubuntu:
+    build:
+      context: .
+      dockerfile: tests/docker/Dockerfile.ubuntu
+    container_name: go-distro-test-ubuntu
+
+  test-fedora:
+    build:
+      context: .
+      dockerfile: tests/docker/Dockerfile.fedora
+    container_name: go-distro-test-fedora
+
+  test-archlinux:
+    build:
+      context: .
+      dockerfile: tests/docker/Dockerfile.archlinux
+    container_name: go-distro-test-archlinux
+
+  test-opensuse:
+    build:
+      context: .
+      dockerfile: tests/docker/Dockerfile.opensuse
+    container_name: go-distro-test-opensuse

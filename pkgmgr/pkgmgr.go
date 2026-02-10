@@ -19,12 +19,24 @@ var (
 	Pacman = P{"pacman"}
 	Dpkg   = P{"dpkg"}
 	Rpm    = P{"rpm"}
+	Apk    = P{"apk"}
+	Dnf    = P{"dnf"}
+	Yum    = P{"yum"}
+	Zypper = P{"zypper"}
+	Emerge = P{"emerge"}
+	Pamac  = P{"pamac"}
 )
 
 var PList = []*P{
 	&Pacman,
 	&Dpkg,
 	&Rpm,
+	&Apk,
+	&Dnf,
+	&Yum,
+	&Zypper,
+	&Emerge,
+	&Pamac,
 }
 
 func LookFor() *P {
